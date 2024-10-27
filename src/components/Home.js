@@ -37,7 +37,7 @@ const Home = () => {
 
       <section className="p-8 text-center" id="home">
         <h2 className="text-3xl font-semibold mb-4">
-          <TypingEffect text="Welcome  To  AceXplore!!" typingSpeed={100} revealSpeed={150} />
+          <TypingEffect text="Welcome  To  AceXplore!!" isDarkMode={isDarkMode} typingSpeed={100} revealSpeed={150} />
         </h2>
         <p className="mb-6">
            Join us to{" "}
@@ -61,6 +61,10 @@ const Home = () => {
         <button onClick={handleButtonClick} className="dashboard-button">
           Go to Dashboard
         </button>
+      </section>
+      <section id="about">
+      <h2 className="text-2xl font-semibold text-center mb-6">An ACE-Ful way to Celebrate Participation Success</h2>
+
       </section>
 
       <section id="events" className="p-8 event-section">

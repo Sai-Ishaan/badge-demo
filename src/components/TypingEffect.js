@@ -3,16 +3,15 @@ import './TypingEffect.css';
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split('');
 
-const TypingEffect = ({ text }) => {
+const TypingEffect = ({ text, isDarkMode }) => {
   const [displayedText, setDisplayedText] = useState(Array(text.length).fill(''));
   const [letterIndex, setLetterIndex] = useState(0);
   const [finished, setFinished] = useState(false);
-   
+
   useEffect(() => {
     let randomizeInterval;
     let revealInterval;
 
-    // Function to randomize letters during reveal phase
     const randomizeLetters = () => {
       if (finished) return;
       setDisplayedText((prev) =>
@@ -22,7 +21,6 @@ const TypingEffect = ({ text }) => {
       );
     };
 
-    // Reveal letters one by one in a set interval
     const revealLetter = () => {
       setDisplayedText((prev) => {
         const newDisplay = [...prev];
@@ -39,7 +37,6 @@ const TypingEffect = ({ text }) => {
       }
     };
 
-    // Start intervals for randomizing and revealing letters
     randomizeInterval = setInterval(randomizeLetters, 75);
     revealInterval = setInterval(revealLetter, 150);
 
@@ -50,11 +47,11 @@ const TypingEffect = ({ text }) => {
   }, [letterIndex, text, finished]);
 
   return (
-    <div className="typing-effect">
+    <div className={isDarkMode ? 'typing-effect-dark' : 'typing-effect-light'}>
       {displayedText.map((char, index) => (
         <span
           key={index}
-          className={`typing-char ${index < letterIndex ? "glow" : "hover-effect"}`}
+          className={`typing-char ${index < letterIndex ? (isDarkMode ? "glow-dark" : "glow-light") : "hover-effect"}`}
         >
           {char}
         </span>
