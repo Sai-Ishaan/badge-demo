@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "Sai Ishaan Balaji",
+      "registerNumber":"125015100",
+      "email": "125015100@sastra.ac.in",
+      "badges": ["Contributor"]
+    },
+    {
+      "id": 2,
+      "name": "Tulip Raaj",
+      "registerNumber": "125015187",
+      "email": "125015187@sastra.ac.in",
+      "badges": ["Contributor"]
+    }
+  ]
+  
