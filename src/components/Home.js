@@ -4,22 +4,30 @@ import { ReactTyped } from "react-typed";
 import { useNavigate } from 'react-router-dom';
 import users from '../data/data.json';
 import './Home.css';
+import LoadingScreen from './LoadingScreen';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Home = () => {
   const [email, setEmail] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showTypedText, setShowTypedText] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
-
-  const handleLogin = () => {
-    const user = users.find((user) => user.email === email);
-
+  
+  const handleButtonClick = () => {
+    const user = users.find(user => user.email === email);
     if (user) {
-      navigate('/dashboard', { state: { user } });
+      toast.success("Successfully logged in!");
+      setIsLoading(true);
+      setTimeout(() => {
+        navigate("/dashboard", { state: { user } });
+        setIsLoading(false);
+      }, 2000);
     } else {
-      alert("User not found. Please check your email and try again.");
+      toast.error("Invalid Email. Please try again.");
     }
   };
 
@@ -34,6 +42,8 @@ const Home = () => {
 
   return (
     <div id="ba" className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <ToastContainer />
+      {isLoading && <LoadingScreen />}
       <nav className="p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">AceXplore</h1>
         <ul className="flex space-x-4">
@@ -75,7 +85,7 @@ const Home = () => {
           placeholder="Enter your email"
           className="input-field"
         />
-        <button onClick={handleLogin} className="dashboard-button">
+        <button onClick={handleButtonClick} className="dashboard-button">
           Go to Dashboard
         </button>
       </section>
