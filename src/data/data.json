@@ -12,6 +12,21 @@
       "registerNumber": "125015187",
       "email": "125015187@sastra.ac.in",
       "badges": ["Contributor"]
-    }
+    },
+    {
+        "id": 3,
+        "name": "Shubham Pandey",
+        "registerNumber": "127015092",
+        "email": "127015092@sastra.ac.in",
+        "badges": ["Contributor"]
+    },
+    {
+        "id": 4,
+        "name": "Sarveswaran",
+        "registerNumber": "126015099",
+        "email": "126015099@sastra.ac.in",
+        "badges": ["Contributor"]
+      }
+ 
   ]
   
