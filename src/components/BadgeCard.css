@@ -1,0 +1,19 @@
+.badge-card {
+    background-color: #2d2d2d;
+    padding: 20px;
+    border-radius: 8px;
+    color: #f0f0f0;
+  }
+  
+  .badge-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .badge-share {
+    display: flex;
+    gap: 8px;
+  }
+  

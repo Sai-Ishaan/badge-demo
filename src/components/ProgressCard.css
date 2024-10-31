@@ -1,0 +1,28 @@
+.progress-card {
+    background-color: #2d2d2d;
+    padding: 20px;
+    border-radius: 8px;
+    color: #f0f0f0;
+  }
+  
+  .progress-bar {
+    margin-bottom: 15px;
+  }
+  
+  .progress {
+    background-color: #555;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 20px;
+  }
+  
+  .progress-value.participation {
+    background-color: #4caf50;
+    height: 100%;
+  }
+  
+  .progress-value.contribution {
+    background-color: #ff9800;
+    height: 100%;
+  }
+  

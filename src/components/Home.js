@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TypingEffect from './TypingEffect';
+import TypingText from './TypingText'; 
 import { ReactTyped } from "react-typed";
 import { useNavigate } from 'react-router-dom';
 import users from '../data/data.json';
@@ -13,6 +14,9 @@ const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showTypedText, setShowTypedText] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const [typingParagraphVisible, setTypingParagraphVisible] = useState(false);
+  const [ruleIndex, setRuleIndex] = useState(0); // New state to track the current rule index
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -34,11 +38,35 @@ const Home = () => {
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer1 = setTimeout(() => {
       setShowTypedText(true);
+      setAboutVisible(true);
     }, 6000);
-    return () => clearTimeout(timer);
+    const timer2 = setTimeout(() => {
+      setTypingParagraphVisible(true);
+    }, 7500);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, []);
+
+  // Show each rule point with a delay
+  useEffect(() => {
+    if (typingParagraphVisible && ruleIndex < rules.length) {
+      const timer = setTimeout(() => {
+        setRuleIndex((prevIndex) => prevIndex + 1);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [typingParagraphVisible, ruleIndex]);
+
+  const rules = [
+    "> Discover New Events",
+    "> Participate",
+    "> Explore your progress",
+    "> Share your achievements"
+  ];
 
   return (
     <div id="ba" className={isDarkMode ? 'dark-mode' : 'light-mode'}>
@@ -48,7 +76,6 @@ const Home = () => {
         <h1 className="text-2xl font-bold">AceXplore</h1>
         <ul className="flex space-x-4">
           <li><a href="#home">Home</a></li>
-          <li><a href="#events">Events</a></li>
           <li><a href="#about">About</a></li>
         </ul>
         <button onClick={toggleDarkMode} className="toggle-dark-mode-btn">
@@ -57,19 +84,24 @@ const Home = () => {
       </nav>
 
       <section className="p-8 text-center" id="home">
-        <h2 className="text-3xl font-semibold mb-4">
+        <h2 className="text-6xl font-semibold mb-4">
           <TypingEffect 
             text="Welcome To AceXplore!!" 
             isDarkMode={isDarkMode} 
-            typingSpeed={100} 
-            revealSpeed={150} 
+            typingSpeed={110} 
+            revealSpeed={150}
+            cursorChar="|" 
           />
         </h2>
-        <p className="mb-6">
+        <p className="mb-7">
           Join us to{" "}
           {showTypedText && (
             <ReactTyped 
-              strings={["Code", "Build", "Progress"]}
+              strings={[
+                `<span class="typed-text"> Code </span>`, 
+                `<span class="typed-text"> Build </span>`, 
+                `<span class="typed-text"> Progress </span>`, 
+              ]}
               typeSpeed={100}
               loop
               backSpeed={20}
@@ -90,28 +122,25 @@ const Home = () => {
         </button>
       </section>
 
-      <section id="about" className="p-8 text-center">
-        <h2 className="text-2xl font-semibold mb-6">An ACE-Ful way to Celebrate Participation Success</h2>
-      </section>
-
-      <section id="events" className="p-8 event-section">
-        <h2 className="text-2xl font-semibold text-center mb-6">Nexus `24</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[...Array(4)].map((_, index) => (
-            <div key={index} className="event-card transform transition duration-500 hover:scale-105">
-              <img
-                src={`https://placeimg.com/640/480/nature/${index + 1}`}
-                alt={`Event ${index + 1}`}
-                className="event-image"
-              />
-              <div className="event-info">
-                <h3 className="event-title">Event Title {index + 1}</h3>
-                <p className="event-description">Event description goes here...</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <section id="about" className={`about-card ${aboutVisible ? 'slide-in' : ''}`}>
+  <p className="main-heading">An ACE-Ful way to Celebrate Participation Success</p>
+  <p className="subtext">
+    At <span className="highlighted-text">ACE</span>, we believe in recognizing every milestone.
+    Our platform is designed to celebrate your achievements, no matter how big or small. Join us
+    to discover exciting new events!!
+  </p>
+  <p className="subtext">
+    <span className="highlighted-text">AceXplore</span> brings together innovators and achievers. We celebrate
+    every step of your journey and recognize the hard work it takes to progress.
+  </p>
+  <p className="rules-title">The Rules are simple:</p>
+  {rules.slice(0, ruleIndex).map((rule, index) => (
+    <TypingText key={index} text={rule} typingSpeed={50} className="fade-in-paragraph" cursorChar="|" />
+  ))}
+  <div className="additional-content mt-6">
+    <button className="explore-button">Explore More</button>
+  </div>
+</section>
     </div>
   );
 };

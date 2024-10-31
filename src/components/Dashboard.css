@@ -1,18 +1,52 @@
-/* Dashboard.css */
-.dashboard {
-  text-align: center;
-  padding: 2rem;
+.dashboard-container {
+  display: flex;
+  padding: 20px;
 }
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activity-histogram-card, .heatmap-card, .badge-progress-card, .badge-card {
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-radius: 8px;
+  color: #ccc;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.heatmap-cell {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.level-0 { background-color: #444; }
+.level-1 { background-color: #666; }
+.level-2 { background-color: #888; }
+.level-3 { background-color: #aaa; }
+.level-4 { background-color: #ccc; }
 
 .progress-bar {
-  width: 100%;
-  background-color: #ccc;
-  border-radius: 8px;
-  margin: 1rem 0;
+  margin-top: 10px;
 }
 
-.xp-bar {
-  height: 1rem;
-  background-color: #4caf50;
-  border-radius: 8px;
+.progress {
+  width: 100%;
+  height: 10px;
+  background-color: #444;
+  border-radius: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4A90E2;
+  border-radius: 5px;
 }

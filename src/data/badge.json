@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Contributor",
+        "description": "Awarded for contributing to events",
+        "shareLink": "https://acexplore.com/badge/contributor"
+    },
+    {
+        "name": "Participation",
+        "description": "Awarded for participating in events",
+        "shareLink": "https://acexplore.com/badge/participation"
+    }
+]
