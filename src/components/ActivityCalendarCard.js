@@ -1,9 +1,8 @@
-// ActivitySnakeHeatmapCard.js
 import React, { useState, useEffect } from 'react';
 import './ActivityCalendarCard.css';
 
 const ActivitySnakeHeatmapCard = ({ activity }) => {
-  const gridSize = 12; // One cell per month
+  const gridSize = 12; 
   const months = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
