@@ -2,8 +2,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import SidebarInfoCard from './SidebarInfoCard';
-import ActivityHistogramCard from './ActivityHistogramCard';
-import HeatmapCard from './HeatmapCard';
+import ActivityCalendarCard from './ActivityCalendarCard';
+import SnakeHeatmapCard from './SnakeHeatmapCard';
 import BadgeProgressCard from './BadgeProgressCard';
 import BadgeCard from './BadgeCard';
 import './Dashboard.css';
@@ -16,8 +16,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <SidebarInfoCard user={user} />
       <div className="dashboard-content">
-        <ActivityHistogramCard activity={user.activity} />
-        <HeatmapCard activity={user.activity} />
+        <ActivityCalendarCard activity={user.activity} />
         <BadgeProgressCard badges={user.badges} />
         <BadgeCard badges={user.badges} />
       </div>

@@ -1,0 +1,93 @@
+.snake-heatmap-card {
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  color: #ccc;
+}
+
+.snake-heatmap {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Adjust for grid size */
+    gap: 2px;
+  }
+  
+  .snake-cell {
+    width: 20px;
+    height: 20px;
+    background-color: #444;
+  }
+  
+  .snake-active {
+    background-color: #4A90E2; /* Green color for active snake cells */
+    transition: background-color 0.3s;
+  }
+  .dashboard-container {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sidebar-info-card,
+  .calendar-card,
+  .snake-heatmap-card,
+  .badge-progress-card,
+  .badge-card {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    color: #ccc;
+  }
+  
+  /* Activity Calendar Styles */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .calendar-cell {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .level-0 { background-color: #444; }
+  .level-1 { background-color: #666; }
+  .level-2 { background-color: #888; }
+  .level-3 { background-color: #aaa; }
+  .level-4 { background-color: #ccc; }
+  
+  /* Snake Heatmap Styles */
+  .snake-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 3px;
+    padding: 10px;
+  }
+  
+  .snake-cell {
+    width: 20px;
+    height: 20px;
+    background-color: #444; /* Default background for empty cells */
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .snake-active {
+    background-color: #4A90E2; /* Snake color */
+  }
+  
+  .snake-body {
+    background-color: #6fcf97;
+  }
+  
+  .snake-head {
+    background-color: #4caf50;
+  }
+  

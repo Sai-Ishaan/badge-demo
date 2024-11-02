@@ -1,0 +1,24 @@
+.calendar-view {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days a week */
+    gap: 5px;
+  }
+  
+  .calendar-cell {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.8em;
+    border-radius: 3px;
+  }
+  
+  .level-0 { background-color: #f0f0f0; }
+  .level-1 { background-color: #d9f7be; }
+  .level-2 { background-color: #b7eb8f; }
+  .level-3 { background-color: #73d13d; }
+  .level-4 { background-color: #52c41a; }
+  .level-5 { background-color: #389e0d; }
+  
